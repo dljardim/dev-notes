@@ -231,3 +231,24 @@ source:destination
 git push origin differentname:serverfix 
 git push origin serverfix:awesomebranch
 
+
+## remote tracking branch
+set local branch - to a remote branch
+-u 
+--set-upstream-to
+
+set local branch to a remote branch -
+git branch -u origin/serverfix
+
+git checkout --track origin/serverfix
+
+cloning creates a tracking branch 'master' that tracks origin/master
+
+tracking branch that uses a different remote (not origin)
+tracking branch that does not track the master branch
+
+create local branch 'mybranch'
+git branch -u origin/mybranch
+
+git branch -vv
+'ahead by 2' - we have 2 commits locally that are not pushed to the server
