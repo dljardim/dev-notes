@@ -252,3 +252,55 @@ git branch -u origin/mybranch
 
 git branch -vv
 'ahead by 2' - we have 2 commits locally that are not pushed to the server
+
+ahead by 3 and behind b 1
+
+
+## remote - fetch merge - pull
+
+git pull = git fetch + git merge
+
+## delete
+git push origin --delete serverfix
+
+## rebasing
+
+3 way merge = branch1 snapshot + branch2 snapshot + most recent common ancestor
+= new snapshot and commit
+
+rebase branchX onto master branch
+
+git checkout branchX
+git rebase master
+git checkout master
+git merge branchX (fast-foward)
+
+## server - protocols
+
+1. local
+2. smart http [read write] / dumb http [read only]
+3. ssh
+
+local - another directory on the same host / network location file system
+git clone /srv/git/project.git
+git clone file:///srv/git/project.git (slow / dont use)
+git clone https://example.com/gitproject.git
+git remote add local_proj /srv/git/project.git
+git clone ssh://[user@]server/project.git
+
+ssh con - does not support anonymous access to the git repo
+- users must have ssh access to the machine
+
+git protocol
+- listen on port 9418
+- no authentication
+- git-daemon-export-ok file placed in repo
+- allow ANYONE to clone from
+- push isn't used often due to authentication difference
+- same data transfer mechanism as SSH - but without the encryption and authentication overhead
+
+## workflow
+
+1. centralized workflow
+2. integration-manager workflow
+3. dictator and liutenants workflow
